@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문</title>
+    <style>
+        h2{
+            text-align: center;
+        }
+        div{
+            float: left;
+            margin-left: 30px;
+        }
+    </style>
+    <script>
+        let tag = '';
+        for(i=2;i<10;i++){
+            tag += "<div>"
+            tag += `<h2>${i}단</h2>`;
+            for(j=1;j<10;j++){
+                tag += `<p>${i} * ${j} = ${i*j}</p>`;
+            }
+            tag += "</div>";
+        }
+        document.write(tag);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
