@@ -43,6 +43,17 @@
         //  2. 달력 일수를 조립
         let tag = `<h2>${today.getMonth()+1}월</h2>`;
         tag += '<table><tr><th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th></tr>';
+        
+        for(i=0;i<line;i++){
+            tag += "<tr>";
+            for(j=0;j<7;j++){
+                tag += `<td>${startDate.getDate()}</td>`;
+                startDate.setDate(startDate.getDate()+1);
+            }
+            tag += "</tr>";
+                
+        }
+
 
         tag += "</table>";
 
