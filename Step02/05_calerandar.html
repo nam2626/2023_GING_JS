@@ -28,6 +28,9 @@
         td:last-child, th:last-child{
             color:blue;
         }
+        .disable{
+            color:gray !important;
+        }
     </style>
     <script>
         // 1. 오늘 날짜 생성
@@ -53,7 +56,10 @@
         for(i=0;i<line;i++){
             tag += "<tr>";
             for(j=0;j<7;j++){
-                tag += `<td>${startDate.getDate()}</td>`;
+                if(startDate.getMonth() != today.getMonth())
+                    tag += `<td class='disable'>${startDate.getDate()}</td>`;
+                else
+                    tag += `<td>${startDate.getDate()}</td>`;
                 startDate.setDate(startDate.getDate()+1);
             }
             tag += "</tr>";
