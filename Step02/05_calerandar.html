@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>달력</title>
+    <script>
+        // 1. 오늘 날짜 생성
+        let today = new Date();
+        // 2. 현재월의 첫번째 날짜, 현재월의 마지막 날짜를 구함
+        let startDate = new Date(today.getFullYear(),today.getMonth(),1);
+        let endDate = new Date(today.getFullYear(),today.getMonth()+1,0);
+        // 3. 달력상으로 첫번째 칸 날짜(첫날을 기준으로 일요일 날짜)
+        startDate.setDate(startDate.getDate() - startDate.getDay());
+        console.log(startDate);
+        // 4. 달력상으로 마지막 칸 날짜(마지막날을 기준으로 토요일 날짜)
+        endDate.setDate(endDate.getDate() + 6 - endDate.getDay());
+        console.log(endDate)
+        //출력할 달력의 줄수를 구함
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
