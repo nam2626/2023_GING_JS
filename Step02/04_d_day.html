@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    /* 
+      오늘 날짜 기준으로 2025수능날까지의 D-Day를 출력
+    */
+   let today = new Date();
+   today.setHours(0);
+   today.setMinutes(0);
+   today.setSeconds(0);
+   today.setMilliseconds(0);
+
+   let dday = new Date("2024-11-14 00:00:00");
+        console.log(today.getTime(),dday.getTime())
+   let day = (dday.getTime() - today.getTime()) / (1000*60*60*24);
+   document.write(`<p>2025 대학수학능력시험까지 ${day}일 남았습니다.</p>`);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
