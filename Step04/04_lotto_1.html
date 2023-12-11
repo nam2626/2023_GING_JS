@@ -36,7 +36,17 @@
             lotto.push(arr);
         }
         console.log(lotto);
+        let tag = '<table><caption>로또</caption>';
+        for(i=0;i<lotto.length;i++){
+            tag += '<tr>';
+            for(j=0;j<lotto[i].length;j++){
+                tag += `<td>${lotto[i][j]}</td>`;
+            }
+            tag += '</tr>';
+        }
+        tag += '</table>';
 
+        document.write(tag);
     </script>
 </head>
 <body>
