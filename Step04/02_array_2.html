@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+    <script>
+        //배열 생성
+        // let arr = [];
+        let arr = new Array();
+
+        //데이터 추가
+        arr.push(10);
+        arr.push(20);
+        arr.push(true);
+        arr.push(3.1415);
+        arr.push('test');
+        arr.push(1);
+
+        //데이터 전체 출력
+        document.write(`<p>${arr}</p>`);
+        console.log(arr);
+
+        //배열 내용 검색
+        document.write(`<p>값이 3.1415 인 인덱스 번호 : ${arr.indexOf(3.1415)} </p>`);
+        document.write(`<p>값이 31415 인 인덱스 번호 : ${arr.indexOf(31415)} </p>`);
+
+        //find - 데이터를 가공해서 상세하게 검색이 가능
+        let result = arr.find((e,i,arr) => e < 20);
+        document.write(`<p>20보다 작은 값 : ${result}`);
+        //화살표 함수        
+        result = arr.find((e,i,arr) => {
+            console.log(e,i,arr);
+            if(e===1){
+                document.write(`<p>결과 값의 인덱스 번호 : ${i}</p>`);
+                return true;
+            }
+            return false;
+        });
+        document.write(`<p>결과 값 : ${result}`);
+        //익명 함수
+        result = arr.find(function(e,i,arr){
+            console.log(e,i,arr);
+            if(e===1){
+                document.write(`<p>결과 값의 인덱스 번호 : ${i}</p>`);
+                return true;
+            }
+            return false;
+        });
+        document.write(`<p>결과 값 : ${result}`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
