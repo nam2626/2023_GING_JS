@@ -48,6 +48,19 @@
             return false;
         });
         document.write(`<p>결과 값 : ${result}`);
+
+        //배열 요소 삭제
+        arr.pop();//마지막에 저장된 값을 삭제
+        document.write(`<p>${arr}</p>`);
+
+        document.write(arr,'<hr>');
+        document.write(arr.slice(1,3),'<hr>');//배열 부분 추출 - 기존 배열 변경이 없음
+        document.write(arr,'<hr>');
+
+        document.write(arr,'<hr>');
+        document.write(arr.splice(3,2),'<hr>');//배열 부분 추출 - 기존 배열이 변경이 됨
+        document.write(arr,'<hr>');
+        
     </script>
 </head>
 <body>
