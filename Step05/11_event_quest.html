@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>evnet</title>
+    <script>
+        window.onload = () => {
+            let flag = false;
+            document.querySelector('img').onclick = function(){
+                flag = !flag;
+                if(flag)
+                    this.src = 'img/check.png';                
+                else
+                    this.src = 'img/non_check.png';                
+            }
+        }
+    </script>
+</head>
+<body>
+    <img src="img/non_check.png" alt="">
+</body>
+</html>
