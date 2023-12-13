@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>select element</title>
+    <script>
+        // document.getElementById('아이디 속성값'); -- 아이디 속성값으로 선택
+        // document.getElementsByTagName('태그명'); --> 배열 형태로 반환
+        // document.getElementsByClassName('클래스 속성값'); --> 배열 형태로 반환
+        // document.getElementsByName('name 속성값'); --> 배열 형태로 반환
+        // document.querySelector('선택자'); --> 하나의 요소만 반환
+        // document.querySelectorAll('선택자'); --> 배열 형태로 반환
+        // 현재 body 태그가 로드 되지 못했기 때문에 작성한 HTML에 접근이 불가능하다.
+        // let txt = document.getElementById("txt");
+        // console.log(txt);
+    </script>
+    <style>
+        p{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="txt" value="기본값"><button>검색</button>
+    <hr>
+    <input type="text" name="t1" value="A"><br>
+    <input type="text" name="t2" value="B"><br>
+    <input type="text" name="t3" value="C"><br>
+    <input type="text" name="t4" value="D"><br>
+
+    <p>1</p>
+    <p>2</p>
+    <p><b>3</b></p>
+    <p>4</p>
+    <p>5</p>
+    <h1>제목 태그</h1>
+    <script>
+        //아이디 속성값으로 선택
+        let txt = document.getElementById("txt");
+        console.log(txt.value, txt.id);
+        txt.value = '바뀐값';
+        txt.type = 'password';
+        //태그명으로 선택 - p
+        let p = document.getElementsByTagName("p");
+        console.log(p);
+        for(tag of p){
+            console.log(tag.innerHTML);
+            //배경색을 녹색으로 변경
+            tag.style.backgroundColor = "green";    
+            //글자색 흰색으로 변경
+            tag.style.color = '#FFFFFF';
+            //밑줄 추가
+            tag.style.textDecoration = 'underline';
+            //해당 태그가 출력하는 내용을 변경(태그도 포함해서 적용)
+            tag.innerHTML = "<b>" + String.fromCharCode(Math.floor(Math.random() * 26) + 65) +"</b>";
+        }
+
+        //querySelectorAll('선택자') : 배열 형태로 반환
+        //모든 input 태그들을 선택한 후에 value 값을 콘솔에 출력한 후에
+        //value 값을 삭제하고, 입력할 수 없게끔 처리
+        //배경색은 모두 빨강색으로 처리
+        let input = document.querySelectorAll('input');
+
+        input.forEach((obj) => {
+            console.log(obj.value);
+            obj.value = '';
+            obj.style.backgroundColor = 'red';
+            obj.disabled = 'true';
+        });
+    </script>
+</body>
+</html>
