@@ -4,6 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>드롭다운 메뉴</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        nav{
+            width: 1200px;
+            margin:100px auto;
+            border: 1px solid black;
+        }
+        nav ul{
+            list-style-type: none;
+        }
+        #main_menu{
+            display: flex;
+            flex-flow: row nowrap;
+        }
+        #main_menu li, .sub_menu{
+            width: calc(100% / 5);
+        }
+        #main_menu a:link, #main_menu a:visited{
+            display: inline-block;
+            width: 100%;
+            border:1px solid black;
+            line-height: 20px;
+            font-size: 20px;
+            padding:20px 0px;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            box-sizing: border-box;
+        }
+        #sub_menu_container{
+            display: flex;
+            flex-flow: row nowrap;
+            height: 0px;
+            border : 1px solid red;
+            overflow: hidden;
+        }
+        .sub_menu a:link, .sub_menu a:visited{
+            display: inline-block;
+            width: 100%;
+            border:1px solid black;
+            line-height: 16px;
+            font-size: 16px;
+            padding:16px 0px;
+            text-align: center;
+            text-decoration: none;
+            color: purple; 
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 <body>
     <nav>
