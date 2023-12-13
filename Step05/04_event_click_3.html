@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+    <script>
+        window.onload = () => {
+            //구글 링크와, 네이버 링크 선택
+            let google = document.querySelector("#google");
+            let naver = document.querySelector("#naver");
+            //각 링크를 클릭하면 '해당 페이지로 이동합니다' 라는 경고창 출력
+            google.onclick = (e) => {
+                alert('구글 페이지로 이동합니다.');
+                e.preventDefault();//기존 태그에 적용된 이벤트 기능을 실행하지 않음
+
+            }
+            
+            naver.onclick = () => {
+                alert('네이버 페이지로 이동합니다.');
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <a href="https://www.google.com" id="google">구글로 이동</a><br>
+    <a href="https://www.naver.com" id="naver">네이버로 이동</a>
+</body>
+</html>
