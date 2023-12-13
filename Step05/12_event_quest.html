@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>롤오버 이미지</title>
+    <script>
+        window.onload = () => {
+            document.querySelector("img").onmouseover = function(){
+                this.src = 'img/linkedin_2.png';
+            }
+            document.querySelector("img").onmouseout = function(){
+                this.src = 'img/linkedin_1.png';
+            }
+        }
+    </script>
 </head>
 <body>
     <img src="img/linkedin_1.png" alt="">
