@@ -56,6 +56,21 @@
             box-sizing: border-box;
         }
     </style>
+    <script>
+        window.onload = () => {
+            let sub_menu_height = document.querySelector('#sub_menu_container').scrollHeight;
+            console.log(document.querySelector('#sub_menu_container').scrollHeight)
+            //nav에 마우스가 올라가면 sub_menu_container의 길이를 서브메뉴 세로길이값으로 변경
+            document.querySelector('nav').onmouseenter = () => {
+                document.querySelector('#sub_menu_container').style.height = sub_menu_height + "px";
+            }
+            //nav에 마우스가 벗어나면 sub_menu_container의 길이를 0px 으로 변경
+            document.querySelector('nav').onmouseleave = () => {
+                document.querySelector('#sub_menu_container').style.height = "0px";
+            }
+
+        }
+    </script>
 </head>
 <body>
     <nav>
