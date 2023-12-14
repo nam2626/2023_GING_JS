@@ -191,7 +191,21 @@
         }
         //전화번호 체크하는 함수
         function checkTel(){
+            let tel = document.querySelector("#tel");
 
+            let reg = /^01([0|1|6|7|8|9])-\d{3,4}-\d{4}$/
+            // let reg = /^01([0|1|6|7|8|9])-?\d{3,4}-?\d{4}$/
+            // let reg = /^01([0|1|6|7|8|9])\d{3,4}\d{4}$/
+
+            if(!reg.test(tel.value)){
+                document.querySelector('#tel').classList.remove('true');
+                document.querySelector('#tel').classList.add('false');
+                return false;
+            }
+            document.querySelector('#tel').classList.remove('false');
+            document.querySelector('#tel').classList.add('true');
+            
+            return true;
         }
         window.onload = () => {
             //아이디 입력시 checkId 함수 연결
@@ -209,6 +223,9 @@
                     e.preventDefault();
                 }
                 if(!checkNick()){
+                    e.preventDefault();
+                }
+                if(!checkTel()){
                     e.preventDefault();
                 }
             }
