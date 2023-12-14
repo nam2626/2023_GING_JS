@@ -14,5 +14,8 @@
     onkeyup : 키보드 키를 눌렀다가 떼었을 때
     onkeypress : 키보드 키를 누르고 있을 때
 폼
-
+    onchange : input 태그의 값이 바뀌었을때
+    onfocus/onblur : 태그가 선택이 된 순간 / 선택이 해제된 순간
+    onsubmit : submit 버튼을 눌렀을때 입력한 내용을 서버에 전송하는 일을 하기 전에 발생되는 이벤트
 기타
+    onload : 로드가 완료되었을 때
