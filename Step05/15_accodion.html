@@ -57,12 +57,43 @@
             background-color: #0c021b;
             color: white;
         }
+        h3.title{
+            cursor: pointer;
+        }
         div.content{
             height: 0px;
             overflow: hidden;
             transition: 0.5s all;
         }
     </style>
+    <script>
+        window.onload = () => {
+            // let content = document.querySelectorAll('.content');
+
+            document.querySelectorAll('.title').forEach((obj, idx) => {
+                obj.onclick = () => {
+                    console.log(obj.nextElementSibling);//현재 태그의 다음 형제 요소
+                    // console.log(obj.previousElementSibling);//현재 태그의 이전 형제 요소
+                    if(obj.nextElementSibling.clientHeight == 0)
+                        obj.nextElementSibling.style.height = obj.nextElementSibling.scrollHeight + "px";
+                    else
+                        obj.nextElementSibling.style.height = '0px';
+                    
+                    // if(content[idx].clientHeight == 0){
+                    //     content[idx].style.height = content[idx].scrollHeight + "px";
+                    // }
+                    // else{
+                    //     content[idx].style.height = '0px';
+                    // } 
+                }
+            });
+            document.querySelector('#btn_close').onclick = () => {
+                document.querySelectorAll('.content').forEach((item,idx) =>{
+                    item.style.height = '0px';
+                });
+            }
+        }
+    </script>
 </head>
 
 <body>
