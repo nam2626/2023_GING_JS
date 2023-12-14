@@ -126,6 +126,7 @@
 
             if(!reg.test(id.value)){
                 document.querySelector('.id_result').innerHTML = '아이디는 8글자 이상 20자 이하로 알파벳 숫자 조합으로 입력하세요';
+                document.querySelector('.id_result').classList.remove('true');
                 document.querySelector('.id_result').classList.add('false');
                 return false;
             }
@@ -150,12 +151,14 @@
             if(!reg.test(pass.value)){
                 document.querySelector('.pass_result').innerHTML = '암호는 대소문자, 숫자, 특수문자 1글자씩 포함되어야합니다. 8~32글자 사이로 입력하세요';
                 document.querySelector('.pass_result').classList.add('false');
+                document.querySelector('.pass_result').classList.remove('true');
                 return false;
             }
             
             if(pass.value != pass_chk.value){
                 document.querySelector('.pass_result').innerHTML = '암호가 일치하지 않습니다.'
                 document.querySelector('.pass_result').classList.add('false');
+                document.querySelector('.pass_result').classList.remove('true');
                 return false;
             }
             document.querySelector('.pass_result').innerHTML = '암호가 일치합니다.'
@@ -164,11 +167,38 @@
 
             return true;
         }
+        //닉네임 기능
+        //1. 닉네임은 20글자까지만 입력이 가능하게끔 처리
+        //2. 입력한 글자개수를 0/20 형식으로 sub_txt에 넣음
+        //3. 최소한 한글자는 입력 해야함
+        function checkNick(){
+            let nick = document.querySelector('#nick');
+            let reg = /^[.\S]{1,20}$/
+
+            nick.value = nick.value.substr(0,20);
+                        
+            document.querySelector('#nick').nextElementSibling.innerHTML = nick.value.length + '/20';
+            
+            if(!reg.test(nick.value)){
+                document.querySelector('#nick').classList.remove('true');
+                document.querySelector('#nick').classList.add('false');
+                return false;
+            }
+            document.querySelector('#nick').classList.remove('false');
+            document.querySelector('#nick').classList.add('true');
+            
+            return true;
+        }
+        //전화번호 체크하는 함수
+        function checkTel(){
+
+        }
         window.onload = () => {
             //아이디 입력시 checkId 함수 연결
             document.querySelector('#id').onkeyup = checkId;
             document.querySelector('#pass').onkeyup = checkPassword;
             document.querySelector('#pass_chk').onkeyup = checkPassword;
+            document.querySelector('#nick').onkeyup = checkNick;
 
             //폼 연결
             document.querySelector('#frm').onsubmit = (e) => {
@@ -176,6 +206,9 @@
                     e.preventDefault();
                 }
                 if(!checkPassword()){
+                    e.preventDefault();
+                }
+                if(!checkNick()){
                     e.preventDefault();
                 }
             }
