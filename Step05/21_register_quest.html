@@ -217,16 +217,7 @@
 
             //폼 연결
             document.querySelector('#frm').onsubmit = (e) => {
-                if(!checkId()){
-                    e.preventDefault();
-                }
-                if(!checkPassword()){
-                    e.preventDefault();
-                }
-                if(!checkNick()){
-                    e.preventDefault();
-                }
-                if(!checkTel()){
+                if(!checkId() || !checkPassword() || !checkNick() || !checkTel()){
                     e.preventDefault();
                 }
             }
