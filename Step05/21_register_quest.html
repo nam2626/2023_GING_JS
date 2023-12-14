@@ -116,25 +116,33 @@
     <script>
         //아이디 값이 정상인지 체크하는 함수
         //1. 글자수 8~20글자 사이
-        //2. 숫자만 쓰면 X
+        //2. 숫자와 알파벳 혼합(숫자와 알파벳이 반드시 1개씩은 들어가야됨)
         //규칙에 만족하면 true, 만족하지 않으면 false
         function checkId(){
             let id = document.querySelector("#id");
 
-            if(id.value.length > 20 || id.value.length < 8){
-                document.querySelector('.id_result').innerHTML = '아이디는 8글자 이상 20자 이하로 입력하세요';
+            let reg = /(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$/
+            console.log(reg.test(id.value));
+
+            if(!reg.test(id.value)){
+                document.querySelector('.id_result').innerHTML = '아이디는 8글자 이상 20자 이하로 알파벳 숫자 조합으로 입력하세요';
                 document.querySelector('.id_result').classList.add('false');
                 return false;
             }
-            if(!isNaN(id.value)){
-                document.querySelector('.id_result').innerHTML = '숫자만 입력해서는 안됩니다.';
-                document.querySelector('.id_result').classList.add('false');
-                return false;
-            }
+            
             document.querySelector('.id_result').innerHTML = '사용이 가능한 아이디 입니다.';
             document.querySelector('.id_result').classList.remove('false');
             document.querySelector('.id_result').classList.add('true');
             return true;
+        }
+        /*
+            1. 두번 입력한 암호가 서로 일치하는지?
+            2. 암호도 8~20글자만 허용
+            3. 특수문자가 포함되어 있는지?
+            하단에 메세지가 떠야됩니다.
+        */
+        function checkPassword(){
+            
         }
         window.onload = () => {
             //아이디 입력시 checkId 함수 연결
