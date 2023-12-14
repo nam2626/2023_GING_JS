@@ -10,7 +10,9 @@
     onmouseenter/onmouseleave : 마우스 포인터가 해당 태그 영역에 올라 갔을때/벗어 낫을때 
     onscroll : 스크롤바 동작
 키보드
-
+    onkeydown : 키보드 키를 눌렀을 때
+    onkeyup : 키보드 키를 눌렀다가 떼었을 때
+    onkeypress : 키보드 키를 누르고 있을 때
 폼
 
 기타
