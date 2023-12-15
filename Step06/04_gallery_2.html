@@ -87,7 +87,17 @@
 
             };
             document.querySelector('.right_arrow').onclick = function(e){
-         
+                if(slideMoving) return;
+                slideMoving = true;
+                let li = document.querySelector('.thumnail li:last-child');
+                //맨 마지막 항목을 -80px 먼저 땡김 - animate로 적용
+                li.animate({marginLeft:'-80px'},right_prev_option);
+                //맨 마지막 항목을 맨 앞으로 이동 - prepend
+                document.querySelector('.thumnail').prepend(li);
+                //맨 마지막 항목을 왼쪽 여백을 0px로 변경 - animate
+                li.animate({marginLeft:'0px'},right_after_option).onfinish = () => {
+                    slideMoving = false;
+                };
             };
         }
     </script>
