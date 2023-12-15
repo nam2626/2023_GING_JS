@@ -66,7 +66,7 @@
                 slideMoving = false;
                 document.querySelector('.thumnail').append(li);
                 //메인 이미지 처리
-                
+                document.querySelector('.thumnail li:first-child > img').onclick();
             };
         }
 
@@ -84,7 +84,9 @@
             //섬네일 이미지 클릭시 메인 이미지 변경
             document.querySelectorAll('.thumnail img').forEach((item) => {
                 item.onclick = function (e) { 
-                    document.querySelector('.main_img').src = this.src;     
+                    document.querySelector('.main_img').src = this.src;
+                    document.querySelectorAll('.thumnail img').forEach((obj) => obj.style.opacity = obj == item ? 1 : 0.5);
+                    
                 }
             }); 
             let intervalID = setInterval(left_event_arrow, 5000);
@@ -104,7 +106,7 @@
                 li.animate({marginLeft:'0px'},right_after_option).onfinish = () => {
                     slideMoving = false;
                     //메인 이미지 처리
-
+                    document.querySelector('.thumnail li:first-child > img').onclick();
                 };
                 clearInterval(intervalID);
             };
