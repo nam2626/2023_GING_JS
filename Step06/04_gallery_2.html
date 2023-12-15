@@ -56,7 +56,7 @@
             let left_option = {
                 duration: 500,
                 iterations: 1,
-                fill : 'forwards'
+                fill : 'backwards'
             };
             let right_prev_option = {
                 duration: 0,
@@ -79,7 +79,11 @@
                 if(slideMoving) return;
                 slideMoving = true;
                 let li = document.querySelector('.thumnail li:first-child');
-                li.animate({marginLeft : '-80px'},left_option);
+                li.animate({marginLeft : '-80px'},left_option).onfinish = () => {
+                    slideMoving = false;
+                    document.querySelector('.thumnail').append(li);
+
+                };
 
             };
             document.querySelector('.right_arrow').onclick = function(e){
