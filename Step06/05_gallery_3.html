@@ -65,7 +65,8 @@
             li.animate({marginLeft : '-80px'},left_option).onfinish = () => {
                 slideMoving = false;
                 document.querySelector('.thumnail').append(li);
-
+                //메인 이미지 처리
+                
             };
         }
 
@@ -89,7 +90,7 @@
             let intervalID = setInterval(left_event_arrow, 5000);
             document.querySelector('.left_arrow').onclick = function(e){
                 left_event_arrow();
-
+                clearInterval(intervalID);
             };
             document.querySelector('.right_arrow').onclick = function(e){
                 if(slideMoving) return;
@@ -102,7 +103,10 @@
                 //맨 마지막 항목을 왼쪽 여백을 0px로 변경 - animate
                 li.animate({marginLeft:'0px'},right_after_option).onfinish = () => {
                     slideMoving = false;
+                    //메인 이미지 처리
+
                 };
+                clearInterval(intervalID);
             };
         }
     </script>
