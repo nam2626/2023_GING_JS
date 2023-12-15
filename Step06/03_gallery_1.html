@@ -52,19 +52,36 @@
             let thumnailBarWidth = document.querySelector('.thumnail_bar').clientWidth;
             let thumnailWidth = document.querySelector('.thumnail').clientWidth;
             let index = 0;
+            let option = {
+                duration: 500,
+                iterations: 1,
+                fill : 'forwards'
+            }
 
             //섬네일 이미지 클릭시 메인 이미지 변경
+            document.querySelectorAll('.thumnail img').forEach((item) => {
+                item.onclick = function (e) { 
+                    document.querySelector('.main_img').src = this.src;     
+                }
+            }); 
+
             document.querySelector('.left_arrow').onclick = function(e){
                 if(thumnailBarWidth + 80 * index == thumnailWidth) return;
                 index++;
                 //애니메이션 처리
-                document.querySelector(".thumnail").style.marginLeft = `-${80 * index}px`;
+                let left_move = {
+                    marginLeft : `-${80 * index}px`
+                };
+                document.querySelector(".thumnail").animate(left_move,option);
             };
             document.querySelector('.right_arrow').onclick = function(e){
                 if(index == 0) return;
                 index--;
                 //애니메이션 처리
-                document.querySelector(".thumnail").style.marginLeft = `-${80 * index}px`;
+                let right_move = {
+                    marginLeft : `-${80 * index}px`
+                };
+                document.querySelector(".thumnail").animate(right_move,option);
             };
         }
     </script>
