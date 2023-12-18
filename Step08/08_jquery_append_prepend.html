@@ -8,7 +8,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $(function(){
-    
+            //해당 선택자에 마지막 자식요소로 추가
+            $('ul').append('<li>마지막 요소 추가 - 1</li>');
+            $('ul').append('<li>마지막 요소 추가 - 2</li>');
+            $('ul').append('<li>마지막 요소 추가 - 3</li>');
+            $('<li>마지막 요소 추가 - 4</li>').appendTo('ul');
+
         });
     </script>
 </head>
