@@ -22,7 +22,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $(function () {
-            
+            //현재 p 태그에 적용된 클래스를 조회
+            console.log($('p').attr('class'));
+            //선택된 요소에 클래스 추가
+            $('p').addClass('bold');
+            $('p').addClass('bold');
+
+            //선택된 요소에 클래스를 제거
+            $('p').removeClass('bold');
+            //있으면 제거, 없으면 추가
+            $('p').toggleClass('underline');
+            $('p').toggleClass('underline');
+
+            //해당 클래스가 있는지 확인
+            console.log($('p').hasClass('bold'));
+            console.log($('p').hasClass('underline'));
         });
     </script>
 </head>
