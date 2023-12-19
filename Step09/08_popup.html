@@ -41,7 +41,10 @@
     <script>
       
         $(function(){
-           
+           //X 버튼 클릭하면 해당 팝업창 숨김
+           $('.container a').click(function(){
+                $(this).parent().hide(500);
+           });
         });
     </script>
 </head>
