@@ -7,8 +7,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         function RequestInfo(){
+            let queryString = {
+                id : '1835847',
+                appid : '23815d818a51ef76062d119292b5691e'
+            };
             $.ajax({
-                url : "https://api.openweathermap.org/data/2.5/weather?id=1835847&appid=23815d818a51ef76062d119292b5691e",
+                url : "https://api.openweathermap.org/data/2.5/weather",
+                data : queryString,
                 type : "GET",
                 dataType : "json",
                 success : function(r){
