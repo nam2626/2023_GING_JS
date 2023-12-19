@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax</title>
+    <script>
+        function RequestInfo(){
+            let url = "http://nam2626.dothome.co.kr/papago_2.php";
+            let text = document.querySelector('#txt').value;
+            
+            //전송할 데이터
+            const data = {
+                method:"POST",
+                body : JSON.stringify({
+                    txt:text
+                })
+            };
+            fetch(url,data).then((response) => response.json()).then((json) => {
+                let result = document.querySelector('.result');
+                result.innerHTML = `${json.message.result.translatedText}`;
+            }).catch((t) => {
+                console.log(t);
+            });
+
+        }
+        window.onload = () => {
+            let btn = document.querySelector('button');
+            btn.onclick = RequestInfo;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="txt">
+    <button>번역하기</button>
+    <div class="result"></div>
+</body>
+</html>
