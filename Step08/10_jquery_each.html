@@ -18,12 +18,19 @@
             });
             //화살표 함수에서의 this는 상위 객체를 의미함 
             $("#ul1 li").each((idx) => {
-                console.log(this);
+                // console.log(this);
             });
             //#ul2에 있는 li 들 중 짝수 번째에 해당하는 자식들에게 글자색을 빨강
             $("#ul2 li").each(function(idx){
                 if((idx + 1) % 2 == 0)
                     $(this).css('color','red');
+            });
+            //#ul2에 있는 li 들 중 홀수 번째에 해당하는 자식들에게 글자색을 파랑
+            $("#ul2 li").each(function(){
+                console.log($(this).index());
+                if(($(this).index() + 1) % 2 == 1){
+                    $(this).css('color','blue');
+                }
             });
         });
     </script>
