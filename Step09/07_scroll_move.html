@@ -42,7 +42,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $(function () {
-           
+           //각 컨테이너에 색깔은 자유롭게 지정
+           let bgColor = ['red','blue','green','yellow','purple','skyblue'];
+           $('.container').map((idx,item)=>{
+            $(item).css('background-color',bgColor[idx]);
+           });
+           //height(),scrollTop(스크롤바 위치값)
+            //next 버튼을 누르면 다음 컨테이너가 보이게끔 스크롤 처리
+            $('#next').click(function(){
+                $(window).scrollTop($(window).scrollTop() + $('.container').height());
+            });
+            //back 버튼을 누르면 이전 컨테이너가 보이게끔 스크롤 처리
+            $('#back').click(function(){
+                $(window).scrollTop($(window).scrollTop() - $('.container').height());
+            });
+
         });
     </script>
 </head>
