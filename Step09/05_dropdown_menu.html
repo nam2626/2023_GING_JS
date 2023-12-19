@@ -59,7 +59,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $(function(){
-           
+            $('#sub_menu_container').slideUp(0);
+
+            $("nav").mouseenter(function(){
+                $('#sub_menu_container').stop().slideDown(1000);
+            });
+            $("nav").mouseleave(function(){
+                $('#sub_menu_container').stop().slideUp(1000);
+            });
+
         });
 
     </script>
