@@ -8,7 +8,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $(function(){
-         
+            //로그인 버튼을 눌러서 submit 이벤트가 실행시
+            //아이디와 비밀번호 중 하나라도 입력이 안되면
+            //submit 이벤트를 중단하는 기능 작성
+            $('#frm').submit(function(e){
+                if($('input[name=id]').val() == '' || $('input[name=pass]').val().length == 0)
+                    e.preventDefault();//return false;
+            });
          
         });
     </script>
