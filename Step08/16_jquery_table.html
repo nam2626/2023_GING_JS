@@ -31,8 +31,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $(function () {
-        
+            //입력 버튼 클릭했을때 입력 받은 내용을 테이블에 추가(맨앞, 맨뒤든 상관 없음)
+            $('button').click(function(){
+                let arr = Array.from($('button').prevAll()).reverse();
+                console.log(arr.reduce((acc,cur,idx) => acc + `<td>${$(cur).val()}</td>`, '<tr>') + "</tr>");
+                $('tbody').append(arr.reduce((acc,cur,idx) => acc + `<td>${$(cur).val()}</td>`, '<tr>') + "</tr>");
+
+            });
+
+            //td를 클릭하면 해당 라인을 지움
+            //단 삭제를 하기전에 사용자에게 미리 예 아니오로 입력 받아서 처리
+            //remove()
 		});
+    </script>
 </head>
 
 <body>
