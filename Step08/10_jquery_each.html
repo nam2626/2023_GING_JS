@@ -20,7 +20,11 @@
             $("#ul1 li").each((idx) => {
                 console.log(this);
             });
-
+            //#ul2에 있는 li 들 중 짝수 번째에 해당하는 자식들에게 글자색을 빨강
+            $("#ul2 li").each(function(idx){
+                if((idx + 1) % 2 == 0)
+                    $(this).css('color','red');
+            });
         });
     </script>
 </head>
