@@ -6,26 +6,31 @@
     <title>ajax</title>
     <script>
         function RequestInfo(){
-            let url = "https://api.openweathermap.org/data/2.5/weather?id=1835847&appid=23815d818a51ef76062d119292b5691e";
+            let url = 'http://nam2626.dothome.co.kr/papago_1.php';
+            let text = document.querySelector('#txt').value;
+            
+            //전송할 데이터
+            let data = new FormData();
+            data.append('txt',text);
 
-            fetch(url).then((response) => {
-                if(!response.ok){
-                    throw new Error(`HTTP error : ${response.status}`);
-                }
-                return response.json();
-            }).then((json) => {
+            let request = new XMLHttpRequest();
+            request.open("POST",url);
+            request.responseType = "text";
+
+            request.addEventListener("load", (t) => {
+                console.log(t);
+                //번역된 내용을 result에 출력
+                let json = JSON.parse(t.currentTarget.response);
+                console.log(json);
                 let result = document.querySelector('.result');
-                let tag = '';
+                result.innerHTML = `${json.message.result.translatedText}`;
+            });
+            request.addEventListener('error',(t) => {
+                console.log(t);
                 
-                tag += `<p>도시명 : ${json.name}</p>`;
-                tag += `<p>현재 날씨 : ${json.weather[0].main}</p>`;
-                tag += `<p>현재온도 : ${json.main.temp - 273.15}</p>`;
-                tag += `<p>최고온도 : ${json.main.temp_max - 273.15}</p>`;
-                tag += `<p>최저온도 : ${json.main.temp_min - 273.15}</p>`;
-                tag += `<p>바람세기 : ${json.wind.speed}m/sec</p>`;
-                result.innerHTML = tag;
-            }).catch((err) => console.log(`Fetch problem : ${err.message}`));
+            });
 
+            request.send(data);
         }
         window.onload = () => {
             let btn = document.querySelector('button');
@@ -34,7 +39,8 @@
     </script>
 </head>
 <body>
-    <button>날씨 정보 읽기</button>
+    <input type="text" id="txt">
+    <button>번역하기</button>
     <div class="result"></div>
 </body>
 </html>
