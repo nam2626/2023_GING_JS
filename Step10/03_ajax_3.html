@@ -20,11 +20,15 @@
                         console.log(xmlDoc);
 
                         let record = xmlDoc.querySelectorAll('record');
-
+                        
                         record.forEach((item, idx) => {
                             console.log(item);
                             //데이터를 한건씩 꺼내서 result에 한 줄씩 출력
-                            
+                            let arr = Array.from(item.childNodes);
+                            console.log(arr)
+                            let text = arr.reduce((pre,cur,idx) => pre + ' ' + cur.innerHTML, '<p>')+"</p>";
+                            console.log(text);
+                            $('.result').append(text);
                         });
 
 
