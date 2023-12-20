@@ -4,33 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ajax</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         function RequestInfo(){
-            let url = 'http://nam2626.dothome.co.kr/papago_1.php';
-            let text = document.querySelector('#txt').value;
-            
-            //전송할 데이터
-            let data = new FormData();
-            data.append('txt',text);
-
-            let request = new XMLHttpRequest();
-            request.open("POST",url);
-            request.responseType = "text";
-
-            request.addEventListener("load", (t) => {
-                console.log(t);
-                //번역된 내용을 result에 출력
-                let json = JSON.parse(t.currentTarget.response);
-                console.log(json);
-                let result = document.querySelector('.result');
-                result.innerHTML = `${json.message.result.translatedText}`;
+            //txt=입력한값
+            let queryString = `txt=${$('#txt').val()}`;
+            $.ajax({
+                url:'http://nam2626.dothome.co.kr/papago_1.php',
+                data:queryString,
+                type:"POST",
+                dataType:"json",
+                success:function(r){
+                    console.log(r);
+                    $('.result').html(r.message.result.translatedText);
+                }
             });
-            request.addEventListener('error',(t) => {
-                console.log(t);
-                
-            });
-
-            request.send(data);
         }
         window.onload = () => {
             let btn = document.querySelector('button');
