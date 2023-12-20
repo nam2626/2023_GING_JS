@@ -64,6 +64,40 @@
             background-color: #c9c9c9;
         }
     </style>
+    <script>
+        $(function(){
+            let slideWidth = $('.slide_img_container li').width();
+            let status = false;
+            let bullet_idx = 0;
+            $('.left_arrow').click(function(){
+                if(status) return;
+                status = true;
+                $('.slide_img_container li').first().animate({
+                    'margin-left':`-${slideWidth}px`
+                },3000,function(){
+                    $(this).appendTo('.slide_img_container').css('margin-left','0px');
+                    status = false;
+                    bullet_idx = ++bullet_idx % 4;
+                    $('.radio').eq(bullet_idx).addClass('select').siblings().removeClass('select');
+                });
+            });
+            $('.right_arrow').click(function(){
+                if(status) return;
+                status = true;
+                $('.slide_img_container li').last().css('margin-left',`-${slideWidth}px`).prependTo('.slide_img_container').animate({
+                    'margin-left':`0px`
+                },3000,function(){
+                    status = false;
+                    --bullet_idx;
+                    if(bullet_idx < 0) bullet_idx = 3;
+                    $('.radio').eq(bullet_idx).addClass('select').siblings().removeClass('select');
+                })
+            });
+        
+        
+        });
+
+    </script>
 </head>
 <body>
     <div class="slide_container">
